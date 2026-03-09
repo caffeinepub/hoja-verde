@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hoja Verde - Gardening Business App */
+/* Font Face Declarations */
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans-Variable.woff2") format("woff2");
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Hoja Verde Color System - Nature/Garden inspired */
+    /* Primary: Dark Forest Green */
+    --primary: 0.32 0.12 145;
+    --primary-foreground: 0.98 0 0;
+
+    /* Secondary: Light Sage Green */
+    --secondary: 0.88 0.06 145;
+    --secondary-foreground: 0.25 0.08 145;
+
+    /* Accent: Fresh Lime Green */
+    --accent: 0.76 0.10 145;
+    --accent-foreground: 0.20 0.09 145;
+
+    /* Backgrounds */
+    --background: 0.99 0 0;
+    --foreground: 0.18 0.03 145;
+
+    /* Cards */
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.03 145;
+
+    /* Popover */
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.03 145;
+
+    /* Muted */
+    --muted: 0.95 0.02 145;
+    --muted-foreground: 0.52 0.04 145;
+
+    /* Destructive - warm red */
+    --destructive: 0.56 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    /* Borders */
+    --border: 0.90 0.03 145;
+    --input: 0.90 0.03 145;
+    --ring: 0.32 0.12 145;
+
+    /* Charts */
+    --chart-1: 0.45 0.14 145;
+    --chart-2: 0.65 0.12 145;
+    --chart-3: 0.75 0.09 145;
+    --chart-4: 0.58 0.18 85;
+    --chart-5: 0.62 0.16 200;
+
+    /* Sidebar */
+    --sidebar: 0.98 0.02 145;
+    --sidebar-foreground: 0.18 0.03 145;
+    --sidebar-primary: 0.32 0.12 145;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.88 0.06 145;
+    --sidebar-accent-foreground: 0.25 0.08 145;
+    --sidebar-border: 0.90 0.03 145;
+    --sidebar-ring: 0.32 0.12 145;
+
+    /* App-specific tokens */
+    --green-dark: 0.28 0.11 145;
+    --green-mid: 0.48 0.13 145;
+    --green-light: 0.78 0.10 145;
+    --green-pale: 0.93 0.04 145;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "General Sans", system-ui, sans-serif;
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Mobile touch optimizations */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Cabinet Grotesk", system-ui, sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  /* Green gradient backgrounds for headers */
+  .bg-green-gradient {
+    background: linear-gradient(
+      135deg,
+      oklch(0.28 0.12 145) 0%,
+      oklch(0.38 0.13 145) 50%,
+      oklch(0.32 0.11 148) 100%
+    );
+  }
+
+  .bg-green-gradient-light {
+    background: linear-gradient(
+      135deg,
+      oklch(0.92 0.05 145) 0%,
+      oklch(0.96 0.03 148) 100%
+    );
+  }
+
+  /* Touch-friendly minimum target */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* FAB button shadow */
+  .shadow-fab {
+    box-shadow: 0 4px 16px oklch(0.28 0.12 145 / 0.4), 0 2px 6px oklch(0.28 0.12 145 / 0.2);
+  }
+
+  /* Card shadow for outdoor readability */
+  .shadow-card {
+    box-shadow: 0 2px 8px oklch(0.18 0.06 145 / 0.1), 0 1px 3px oklch(0.18 0.06 145 / 0.08);
+  }
+
+  /* Bottom nav safe area */
+  .pb-safe {
+    padding-bottom: max(env(safe-area-inset-bottom), 0.5rem);
+  }
+
+  /* Status badge colors */
+  .badge-pending {
+    background-color: oklch(0.95 0.08 85);
+    color: oklch(0.42 0.14 60);
+  }
+
+  .badge-sent, .badge-quote-sent {
+    background-color: oklch(0.93 0.06 220);
+    color: oklch(0.38 0.14 230);
+  }
+
+  .badge-accepted {
+    background-color: oklch(0.92 0.07 145);
+    color: oklch(0.30 0.12 145);
+  }
+
+  .badge-rejected {
+    background-color: oklch(0.95 0.08 25);
+    color: oklch(0.40 0.18 22);
+  }
+
+  .badge-completed {
+    background-color: oklch(0.90 0.08 145);
+    color: oklch(0.28 0.12 145);
+  }
+
+  .badge-in-progress {
+    background-color: oklch(0.93 0.06 220);
+    color: oklch(0.38 0.14 230);
+  }
+
+  .badge-scheduled {
+    background-color: oklch(0.95 0.06 270);
+    color: oklch(0.40 0.12 280);
+  }
+
+  .badge-cancelled {
+    background-color: oklch(0.92 0.02 0);
+    color: oklch(0.40 0.02 0);
+  }
+}
+
+/* Smooth view transitions */
+.view-enter {
+  opacity: 0;
+  transform: translateX(8px);
+}
+.view-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+/* Mobile scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.78 0.08 145);
+  border-radius: 2px;
+}
