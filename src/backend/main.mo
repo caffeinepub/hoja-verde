@@ -304,7 +304,7 @@ actor {
   };
 
   public shared ({ caller }) func deleteClient(clientId : ClientId) : async () {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #admin))) {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only admins can delete clients");
     };
     if (not clients.containsKey(clientId)) {
@@ -407,7 +407,7 @@ actor {
   };
 
   public shared ({ caller }) func deleteJob(jobId : JobId) : async () {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #admin))) {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only admins can delete jobs");
     };
     jobs.remove(jobId);
@@ -472,7 +472,7 @@ actor {
   };
 
   public shared ({ caller }) func deleteQuote(quoteId : QuoteId) : async () {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #admin))) {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only admins can delete quotes");
     };
     quotes.remove(quoteId);
@@ -517,7 +517,7 @@ actor {
   };
 
   public shared ({ caller }) func deleteInvoice(invoiceId : InvoiceId) : async () {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #admin))) {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only admins can delete invoices");
     };
     if (not invoices.containsKey(invoiceId)) {
@@ -585,7 +585,7 @@ actor {
   };
 
   public shared ({ caller }) func deleteProspect(prospectId : ProspectId) : async () {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #admin))) {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only admins can delete prospects");
     };
     prospects.remove(prospectId);
@@ -640,7 +640,7 @@ actor {
   };
 
   public shared ({ caller }) func deleteFinancialEntry(entryId : FinancialEntryId) : async () {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #admin))) {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only admins can delete financial entries");
     };
     financialEntries.remove(entryId);
